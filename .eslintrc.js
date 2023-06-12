@@ -1,21 +1,25 @@
 module.exports = {
   env: {
+    browser: true,
     es2021: true,
     node: true,
   },
-  extends: [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "airbnb-base",
-    "airbnb-typescript/base",
-  ],
-  parser: "@typescript-eslint/parser",
-  parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
-    project: ["./tsconfig.json"],
-  },
+  extends: 'standard-with-typescript',
   overrides: [],
-  rules: {},
-  ignorePatterns: ["__tests__/*", "dist/*"],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: ['./tsconfig.json'],
+    tsconfigRootDir: __dirname,
+  },
+  plugins: ['@typescript-eslint'],
+  rules: {
+    '@typescript-eslint/no-explicit-any': 'error',
+    'max-len': ['error', { code: 120 }],
+    'linebreak-style': 0,
+    'consistent-return': 'off',
+    'arrow-body-style': ['error', 'as-needed'],
+  },
+  ignorePatterns: ['__test__/*', 'dist/*'],
 };
