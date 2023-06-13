@@ -6,4 +6,5 @@ server.listen(PORT, async () => {
   console.log('SERVER IS RUNNING!');
 
   await mongoose.connect(DB_URL);
+  console.log('DB connected');
 });
