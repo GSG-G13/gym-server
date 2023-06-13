@@ -1,7 +1,7 @@
 import { type Request, type Response } from 'express'
 import { Class } from '../../database/classSchema'
 
-const addClass = async (req: Request, res: Response) => {
+const addClass = async (req: Request, res: Response): Promise<void> => {
   try {
     const { className, description, trainerId, price, time, limit, userCount } = req.body
 
@@ -19,3 +19,5 @@ const addClass = async (req: Request, res: Response) => {
     console.log(error)
   }
 }
+
+export default addClass
