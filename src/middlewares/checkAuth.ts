@@ -1,5 +1,5 @@
 import { type NextFunction, type Request, type Response } from 'express';
-import { CustomError } from '../helpers';
+import CustomError from '../helpers';
 import verifyToken from '../helpers/jwtPromises';
 
 interface userInto {
