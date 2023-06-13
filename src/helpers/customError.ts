@@ -1,12 +1,12 @@
 class CustomError {
-  status: number
+  status: number;
 
-  message: string
+  message: string;
 
-  constructor (status: number, message: string) {
-    this.status = status
-    this.message = message
+  constructor(status: number, message: string) {
+    this.status = status;
+    this.message = message;
   }
 }
 
-export default CustomError
+export default CustomError;
