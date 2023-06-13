@@ -1,9 +1,9 @@
-import server from './app'
-import { PORT, DB_URL } from './config'
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
+import server from './app';
+import { PORT, DB_URL } from './config';
 
-server.listen(PORT, async ()=>{
-  console.log('SERVER IS RUNNING!')
+server.listen(PORT, async () => {
+  console.log('SERVER IS RUNNING!');
 
-  await mongoose.connect(DB_URL)
-})
+  await mongoose.connect(DB_URL);
+});
