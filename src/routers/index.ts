@@ -1,5 +1,8 @@
-import express, { type Router } from 'express'
+import express, { Router } from 'express';
+import classRouter from './class';
 
-const router: Router = express.Router()
+const router: Router = express.Router();
 
-export default router
+router.use('/classes', classRouter);
+
+export default router;

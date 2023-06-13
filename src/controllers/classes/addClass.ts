@@ -1,9 +1,9 @@
-import { type Request, type Response } from 'express'
-import { Class } from '../../database/classSchema'
+import { type Request, type Response } from 'express';
+import { Class } from '../../database/classSchema';
 
 const addClass = async (req: Request, res: Response): Promise<void> => {
   try {
-    const { className, description, trainerId, price, time, limit, userCount } = req.body
+    const { className, description, trainerId, price, time, limit, userCount } = req.body;
 
     await Class.create({
       className,
@@ -12,12 +12,12 @@ const addClass = async (req: Request, res: Response): Promise<void> => {
       price,
       time,
       limit,
-      userCount
-    })
-    res.status(201).json('class added successfully!')
+      userCount,
+    });
+    res.status(201).json('class added successfully!');
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-}
+};
 
-export default addClass
+export default addClass;
