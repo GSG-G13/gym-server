@@ -14,7 +14,7 @@ const addClass = async (req: Request, res: Response): Promise<void> => {
       limit,
       userCount
     })
-    res.status(201).json('class is created')
+    res.status(201).json('class added successfully!')
   } catch (error) {
     console.log(error)
   }
