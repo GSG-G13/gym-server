@@ -7,6 +7,7 @@ dotenv.config()
 
 export const {
   PORT,
-  DB_URL
+  DB_URL,
+  SECRET_KEY
 
 } = process.env as Record<string, string>
