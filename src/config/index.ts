@@ -2,6 +2,8 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
-const { PORT } = process.env
+export const {
+  PORT,
+  DB_URL
 
-export default PORT
+} = process.env as Record<string, string>
