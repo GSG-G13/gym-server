@@ -4,3 +4,5 @@ import signupController from '../../controllers/user/signup';
 const userRouter: Router = express.Router();
 
 userRouter.post('/', signupController);
+
+export default userRouter;
