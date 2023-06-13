@@ -3,4 +3,4 @@ interface userData {
   role: string
 }
 
-export default userData
+export default userData;

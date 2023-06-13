@@ -1,7 +1,7 @@
-import server from './app'
-import { PORT, DB_URL } from './config'
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
+import server from './app';
+import { PORT, DB_URL } from './config';
 
 mongoose.connect(DB_URL)
-  .then(() => server.listen(PORT, () => { console.log('SERVER IS RUNNING!') }))
-  .catch(err => { console.log(err) })
+  .then(() => server.listen(PORT, () => { console.log('SERVER IS RUNNING!'); }))
+  .catch((err) => { console.log(err); });
