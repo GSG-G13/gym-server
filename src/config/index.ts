@@ -1,10 +1,10 @@
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
 
-dotenv.config()
+dotenv.config();
 
 export const {
   PORT,
   DB_URL,
-  SECRET_KEY
+  SECRET_KEY,
 
-} = process.env as Record<string, string>
+} = process.env as Record<string, string>;
