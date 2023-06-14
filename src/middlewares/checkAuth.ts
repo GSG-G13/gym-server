@@ -1,13 +1,10 @@
 import { type NextFunction, type Request, type Response } from 'express';
 import CustomError from '../helpers';
 import verifyToken from '../helpers/jwtPromises';
-
-interface userInto {
-  id: string, role: string
-}
+import userInfo from '../interfaces/userDataI';
 
 interface TokenRequest extends Request {
-  user?: userInto
+  user?: userInfo
 }
 
 const checkAuth = async (req: TokenRequest, res: Response, next: NextFunction) => {
@@ -17,7 +14,7 @@ const checkAuth = async (req: TokenRequest, res: Response, next: NextFunction) =
   }
 
   const userData = await verifyToken(token);
-  req.user = userData as userInto;
+  req.user = userData as userInfo;
   next();
 };
 
