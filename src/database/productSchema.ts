@@ -14,7 +14,12 @@ const productSchema = new mongoose.Schema <IProduct>({
   price: {
     type: Number,
   },
+  category: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'categories',
+  },
 
 });
 
-export const Product = mongoose.model('products', productSchema);
+const Product = mongoose.model('products', productSchema);
+export default Product;

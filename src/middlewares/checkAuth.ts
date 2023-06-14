@@ -10,7 +10,7 @@ interface TokenRequest extends Request {
 const checkAuth = async (req: TokenRequest, res: Response, next: NextFunction) => {
   const { token } = req.cookies;
   if (!token) {
-    next(new CustomError(401, 'Not Autherized'));
+    next(new CustomError(401, 'Not Authorized'));
   }
 
   const userData = await verifyToken(token);
