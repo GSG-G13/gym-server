@@ -13,7 +13,7 @@ const signup = async (req: Request, res: Response, next: NextFunction): Promise<
       next(new CustomError(400, 'Email already exist'));
     } else {
       const hashedPassword = await hash(password, 10);
-      await User.create({
+      const userData = await User.create({
         username,
         email,
         password: hashedPassword,
@@ -23,12 +23,11 @@ const signup = async (req: Request, res: Response, next: NextFunction): Promise<
         goalWeight,
         role,
       });
-      const userID = User.findOne({ email });
+
       const token = await sign({
-        userID,
-        username,
-        email,
-        role,
+        username: userData.username,
+        id: userData._id,
+        role: userData.role,
       }, SECRET_KEY);
       res.cookie('userinfo', token).status(201).json({ massage: 'user created successfully' });
     }
