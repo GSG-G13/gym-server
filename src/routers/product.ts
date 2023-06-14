@@ -1,7 +1,7 @@
 import express from 'express';
-import addProduct from '../controllers/products';
 import productValidationSchema from '../validations/productValidationSchema';
-import validationData from '../middlewares/productValidation';
+import validationData from '../middlewares/validation';
+import { addProduct } from '../controllers/products';
 
 const productRouter = express.Router();
 

@@ -4,5 +4,5 @@ import productRouter from './product'
 const router: Router = express.Router()
 
 router.use('/products', productRouter);
-''
+
 export default router
