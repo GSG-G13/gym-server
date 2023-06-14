@@ -10,16 +10,16 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
   },
-  hieght: {
+  height: {
     type: Number,
   },
-  wieght: {
+  weight: {
     type: Number,
   },
   gender: {
     type: String,
   },
-  goalWieght: {
+  goalWeight: {
     type: Number,
   },
   role: {
