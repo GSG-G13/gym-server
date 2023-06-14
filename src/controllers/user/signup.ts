@@ -24,7 +24,7 @@ const signup = async (req: Request, res: Response, next: NextFunction): Promise<
         role,
       });
 
-      const token = await sign({
+      const token = sign({
         username: userData.username,
         id: userData._id,
         role: userData.role,

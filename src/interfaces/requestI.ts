@@ -2,7 +2,7 @@ import { Request } from 'express';
 import userData from './userDataI';
 
 export interface UserRequestI extends Request {
-  User: userData
+  user?: userData
 }
 
 export interface Body{
