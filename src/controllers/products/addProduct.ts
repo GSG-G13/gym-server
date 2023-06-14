@@ -1,12 +1,13 @@
-import { Response, Request } from 'express';
-import { Product } from '../../database/productSchema';
+import { NextFunction, Response, Request } from 'express';
+import Product from '../../database/productSchema';
+import CustomError from '../../helpers';
 
-const addProduct = async (req: Request, res: Response): Promise<void> => {
+const addProduct = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
     const { title, image, rating, price, category } = req.body;
     const isExistedProduct = await Product.findOne({ title });
     if (isExistedProduct) {
-      res.status(400).json({ msg: 'Product Is Existing' });
+      throw new CustomError(400, 'Product Is Existing');
     }
     await Product.create({
       title,
@@ -16,8 +17,9 @@ const addProduct = async (req: Request, res: Response): Promise<void> => {
       category,
     });
     res.status(201).json({ msg: 'Created Product Successfully' });
-  } catch (error) {
-    res.status(400).json({ error });
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    next(new CustomError(400, error.message));
   }
 };
 
