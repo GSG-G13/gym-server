@@ -1,33 +1,34 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
-import type IClass from '../interfaces/class'
+import type IClass from '../interfaces/class';
 
 const classSchema = new mongoose.Schema <IClass>({
   className: {
-    type: String
+    type: String,
   },
 
   description: {
-    type: String
+    type: String,
   },
 
   trainerId: {
-    type: Number
+    type: Number,
   },
   price: {
-    type: Number
+    type: Number,
   },
 
   time: {
-    type: Number
+    type: Number,
   },
   limit: {
-    type: Number
+    type: Number,
   },
 
   userCount: {
-    type: Number
-  }
-})
+    type: Number,
+  },
+});
 
-export const Class = mongoose.model('classes', classSchema)
+const Class = mongoose.model('classes', classSchema);
+export default Class;

@@ -8,4 +8,4 @@ interface IClass {
   userCount: number
 }
 
-export default IClass
+export default IClass;
