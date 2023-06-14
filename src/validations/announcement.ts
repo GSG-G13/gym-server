@@ -5,6 +5,6 @@ export default object({
     title: string().required(),
     description: string().required(),
     image: string(),
-    roleId: string(),
+    roleId: string().required(),
   }),
 });

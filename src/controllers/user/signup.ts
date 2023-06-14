@@ -29,7 +29,7 @@ const signup = async (req: Request, res: Response, next: NextFunction): Promise<
         id: userData._id,
         role: userData.role,
       }, SECRET_KEY);
-      res.cookie('userinfo', token).status(201).json({ massage: 'user created successfully' });
+      res.cookie('  ', token).status(201).json({ massage: 'user created successfully' });
     }
   } catch (error) {
     next(new CustomError(500, 'server error'));

@@ -11,7 +11,8 @@ const announcementSchema = new mongoose.Schema({
     type: String,
   },
   roleId: {
-    type: Number,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'users',
   },
 });
 
