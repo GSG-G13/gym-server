@@ -18,10 +18,6 @@ const classSchema = new mongoose.Schema <IClass>({
   price: {
     type: Number,
   },
-
-  time: {
-    type: Number,
-  },
   limit: {
     type: Number,
   },

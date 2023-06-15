@@ -5,7 +5,6 @@ interface IClass {
   description: string
   trainerId: Types.ObjectId
   price: number
-  time: number
   limit: number
   userCount: number
 }
