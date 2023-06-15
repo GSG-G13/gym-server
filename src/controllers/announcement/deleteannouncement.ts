@@ -13,7 +13,7 @@ const deleteAnnouncement = async (
 
     res.status(202).json({
       deletedAnnouncement,
-      msg: 'this announcement has been deleted successfully',
+      msg: 'Announcement has been deleted successfully',
     });
   } catch (error) {
     next(new CustomError(500, error.message));
