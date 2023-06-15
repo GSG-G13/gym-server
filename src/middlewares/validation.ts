@@ -1,5 +1,5 @@
-import { NextFunction, Request, Response } from 'express';
-import { AnySchema } from 'yup';
+import { type NextFunction, type Request, type Response } from 'express';
+import { type AnySchema } from 'yup';
 
 const validationData = (schema: AnySchema) => async (
   req: Request,
