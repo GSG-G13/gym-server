@@ -11,6 +11,7 @@ export interface roleRequest extends TokenRequest {
 const checkRole = async (req: roleRequest, res: Response, next: NextFunction) => {
   try {
     const { token } = req.cookies;
+
     if (!token) {
       throw new CustomError(401, 'Not Authorized');
     }
