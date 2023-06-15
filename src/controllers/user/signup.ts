@@ -11,7 +11,27 @@ const signup = async (req: Request, res: Response, next: NextFunction): Promise<
 
     const emailExist = await User.findOne({ email });
     if (emailExist) {
+      // next(new CustomError(400, 'Email already exist'));
       throw new CustomError(400, 'Email already exist');
+    } else {
+      const hashedPassword = await hash(password, 10);
+      const userData = await User.create({
+        username,
+        email,
+        password: hashedPassword,
+        weight,
+        height,
+        gender,
+        goalweight,
+        role,
+      });
+
+      const token = sign({
+        username: userData.username,
+        id: userData._id,
+        role: userData.role,
+      }, SECRET_KEY);
+      res.cookie('token', token).status(201).json({ massage: 'user created successfully' });
     }
     const hashedPassword = await hash(password, 10);
     const userData = await User.create({
