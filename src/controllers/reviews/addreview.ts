@@ -13,7 +13,7 @@ const addReview = async (req: TokenRequest, res: Response, next: NextFunction): 
       await Review.create({
         userID: id,
         productID,
-        rating,
+        review: rating,
       });
       res.json({ massage: 'review added' }).status(201);
     } else {
