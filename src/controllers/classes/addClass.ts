@@ -1,12 +1,13 @@
-import { type Request, type Response } from 'express';
+import { NextFunction, type Request, type Response } from 'express';
 import Class from '../../database/classSchema';
+import CustomError from '../../helpers';
 
-const addClass = async (req: Request, res: Response): Promise<void> => {
+const addClass = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
     const { className, description, trainerId, price, time, limit, userCount } = req.body;
     const checkName = await Class.findOne({ className });
     if (checkName) {
-      res.status(400).json({ msg: 'className already existed!' });
+      throw new CustomError(400, 'className already existed!');
     }
     await Class.create({
       className,
@@ -19,7 +20,7 @@ const addClass = async (req: Request, res: Response): Promise<void> => {
     });
     res.status(201).json('class added successfully!');
   } catch (error) {
-    console.log(error);
+    next(new CustomError(400, error.message));
   }
 };
 

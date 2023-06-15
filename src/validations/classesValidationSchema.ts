@@ -6,8 +6,8 @@ export default object({
     description: string().required(),
     trainerId: string(),
     price: number().required(),
-    time: number(),
-    limit: number(),
-    userCount: number(),
+    time: number().required(),
+    limit: number().required(),
+    userCount: number().required(),
   }),
 });
