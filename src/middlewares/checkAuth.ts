@@ -8,14 +8,18 @@ export interface TokenRequest extends Request {
 }
 
 const checkAuth = async (req: TokenRequest, res: Response, next: NextFunction) => {
-  const { token } = req.cookies;
-  if (!token) {
-    next(new CustomError(401, 'Not Autherized'));
+  try {
+    const { token } = req.cookies;
+    if (!token) {
+      throw new CustomError(401, 'Not Authorized');
+    }
+    const userData = await verifyToken(token);
+    req.user = userData as userInfo;
+    next();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (err: any) {
+    if (err.name === 'JsonWebTokenError') next(new CustomError(401, 'Error'));
+    next(err);
   }
-
-  const userData = await verifyToken(token);
-  req.user = userData as userInfo;
-  next();
 };
-
 export default checkAuth;
