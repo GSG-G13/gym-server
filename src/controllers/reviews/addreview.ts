@@ -7,13 +7,13 @@ import UserData from '../../interfaces/userDataI';
 const addReview = async (req: TokenRequest, res: Response, next: NextFunction): Promise<void> => {
   try {
     const { id } = req.user as UserData;
-    const { productID, rating } = req.body;
+    const { productID, review } = req.body;
     const reviewExist = await Review.find({ userID: id, productID });
     if (!reviewExist.length) {
       await Review.create({
         userID: id,
         productID,
-        review: rating,
+        review,
       });
       res.json({ massage: 'review added' }).status(201);
     } else {
