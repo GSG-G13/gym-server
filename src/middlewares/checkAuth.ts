@@ -3,7 +3,7 @@ import CustomError from '../helpers';
 import verifyToken from '../helpers/jwtPromises';
 import userInfo from '../interfaces/userDataI';
 
-interface TokenRequest extends Request {
+export interface TokenRequest extends Request {
   user?: userInfo
 }
 

@@ -1,21 +1,22 @@
-import { type NextFunction, type Request, type Response } from 'express';
+import { NextFunction, Response } from 'express';
 import CustomError from '../helpers';
 import verifyToken from '../helpers/jwtPromises';
 import userInfo from '../interfaces/userDataI';
+import { TokenRequest } from './checkAuth';
 
-interface TokenRequest extends Request {
-  user?: userInfo
+export interface roleRequest extends TokenRequest {
+  admin?: userInfo
 }
 
-const checkRole = async (req: TokenRequest, res: Response, next: NextFunction) => {
+const checkRole = async (req: roleRequest, res: Response, next: NextFunction) => {
   try {
     const { token } = req.cookies;
     if (!token) {
       throw new CustomError(401, 'Not Authorized');
     }
     const userData = await verifyToken(token);
-    req.user = userData as userInfo;
-    const { role } = req.user;
+    req.admin = userData as userInfo;
+    const { role } = req.admin;
     if (role !== 'admin') {
       throw new CustomError(401, 'Not Authorized');
     }

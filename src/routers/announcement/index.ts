@@ -5,6 +5,6 @@ import announcementValidation from '../../validations/announcement';
 
 const announcementRouter: Router = express.Router();
 
-announcementRouter.post('/:roleId', validationData(announcementValidation), addAnnouncement);
+announcementRouter.post('/', validationData(announcementValidation), addAnnouncement);
 
 export default announcementRouter;

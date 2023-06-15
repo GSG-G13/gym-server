@@ -1,17 +1,23 @@
-import { NextFunction, Request, Response } from 'express';
+import { NextFunction, Response } from 'express';
 import Announcement from '../../database/announcement';
 import CustomError from '../../helpers';
+import { roleRequest } from '../../middlewares/checkRole';
+import userData from '../../interfaces/userDataI';
 
-const addAnnouncement = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+const addAnnouncement = async (
+  req: roleRequest,
+  res: Response,
+  next: NextFunction,
+): Promise<void> => {
   try {
     const { title, description, image } = req.body;
-    const { roleId } = req.params;
+    const { id } = req.admin as userData;
 
     await Announcement.create({
       title,
       description,
       image,
-      roleId,
+      roleId: id,
     });
 
     res.status(201).json({
