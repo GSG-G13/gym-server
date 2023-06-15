@@ -8,12 +8,17 @@ const addReview = async (req: TokenRequest, res: Response, next: NextFunction): 
   try {
     const { id } = req.user as UserData;
     const { productID, rating } = req.body;
-    await Review.create({
-      userID: id,
-      productID,
-      rating,
-    });
-    res.json({ massage: 'review sent' }).status(201);
+    const reviewExist = await Review.find({ userID: id, productID });
+    if (!reviewExist.length) {
+      await Review.create({
+        userID: id,
+        productID,
+        rating,
+      });
+      res.json({ massage: 'review added' }).status(201);
+    } else {
+      next(new CustomError(400, 'you have already reviews this product!'));
+    }
   } catch (error) {
     next(new CustomError(500, 'could not add a review'));
   }
