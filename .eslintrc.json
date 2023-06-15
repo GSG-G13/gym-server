@@ -23,7 +23,8 @@
     "import/extensions": "off",
     "object-curly-newline": "off",
     "implicit-arrow-linebreak": "off",
-    "linebreak-style": "off"
+    "linebreak-style": "off",
+    "no-underscore-dangle": "off"
   },
   "ignorePatterns": [
     "**/__test__/*.ts"
