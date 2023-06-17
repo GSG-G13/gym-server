@@ -8,9 +8,12 @@ const updateAnnouncement = async (
   next: NextFunction,
 ): Promise<void> => {
   try {
-    const { title } = req.body;
+    const { title, description, image } = req.body;
     const { id } = req.params;
-    const updatedAnnouncement = await Announcement.findByIdAndUpdate(id, { title });
+    const updatedAnnouncement = await Announcement.findByIdAndUpdate(
+      id,
+      { title, description, image },
+    );
     res.status(203).json({
       updatedAnnouncement,
       msg: 'announcement has been updated successfully',
