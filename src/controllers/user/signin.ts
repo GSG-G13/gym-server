@@ -1,18 +1,24 @@
-import type { Request, Response } from 'express';
+import type { NextFunction, Request, Response } from 'express';
+import { compare } from 'bcrypt';
 import User from '../../database/user';
+import CustomError from '../../helpers';
 
-const signIn = async (req:Request, res:Response): Promise<void> => {
+const signIn = async (req:Request, res:Response, next: NextFunction): Promise<void> => {
   try {
-    const { username, password } = req.body;
-    const user = await User.findOne({ username });
-    if (user?.password === password) {
-      res.status(200).json({
-        user,
-        msg: 'logged',
-      });
+    const { email, password } = req.body;
+    const user = await User.findOne({ email }, { password: 1 });
+    if (!user) {
+      next(new CustomError(400, 'Email or password wrong!'));
+    } else {
+      const passwordsMatch = await compare(password, user.password);
+      if (!passwordsMatch) {
+        next(new CustomError(400, 'Email or password wrong!'));
+      } else {
+        res.cookie('token', user).status(200).json({ message: 'logged in successfully' });
+      }
     }
   } catch (error) {
-    console.log(error);
+    next(new CustomError(400, 'Email or password wrong!'));
   }
 };
 
