@@ -2,7 +2,7 @@ import { Types } from 'mongoose';
 
 interface ISubscription {
     userId: Types.ObjectId
-    classId: Number
+    classId: Types.ObjectId
     status: string
      }
 export default ISubscription;
