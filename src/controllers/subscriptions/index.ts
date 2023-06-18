@@ -1,4 +1,5 @@
 import addSubscription from './addSubscription';
 import getSubscriptions from './getSubscriptions';
+import deleteSubscription from './deleteSubscription';
 
-export { addSubscription, getSubscriptions };
+export { addSubscription, getSubscriptions, deleteSubscription };
