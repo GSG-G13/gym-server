@@ -1,13 +1,14 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import Product from '../../database/productSchema';
+import CustomError from '../../helpers';
 
-const getProductByCategory = async (req: Request, res: Response) => {
+const getProductByCategory = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { category } = req.query;
     const productByCategory = await Product.find({ category });
-    res.status(200).json({ productByCategory, msg: 'Get Product Category Successfully' });
+    res.status(200).json({ productByCategory, msg: 'Get Product By Category Successfully' });
   } catch (error) {
-    res.status(400).json({ error });
+    next(new CustomError(500, error.message));
   }
 };
 
