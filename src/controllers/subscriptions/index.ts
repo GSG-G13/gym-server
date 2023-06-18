@@ -1,3 +1,4 @@
 import addSubscription from './addSubscription';
+import getSubscriptions from './getSubscriptions';
 
-export default addSubscription;
+export { addSubscription, getSubscriptions };
