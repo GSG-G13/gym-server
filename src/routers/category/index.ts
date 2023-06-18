@@ -8,10 +8,8 @@ import { addCategory, deleteCategory, updateCategory, getCategories } from '../.
 const categoryRouter = express.Router();
 
 categoryRouter.post('/', checkRole, addCategory);
-// categoryRouter.get('/', getCategories);
-// categoryRouter.put('/:id', updateProduct);
-categoryRouter.put('/:id', checkRole, updateCategory);
 categoryRouter.get('/', getCategories);
+categoryRouter.put('/:id', checkRole, updateCategory);
 categoryRouter.delete('/:id', checkRole, deleteCategory);
 
 export default categoryRouter;
