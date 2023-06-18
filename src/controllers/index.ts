@@ -1,4 +1,4 @@
 import addAnnouncement from './announcement/addannouncement';
-import { addCategory, getCategories } from './categories';
+import { addCategory, updateCategory, getCategories } from './categories';
 
-export { addAnnouncement, addCategory, getCategories };
+export { addAnnouncement, addCategory, updateCategory, getCategories };
