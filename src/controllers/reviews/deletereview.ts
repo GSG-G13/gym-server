@@ -10,9 +10,9 @@ const deleteReview = async (req: TokenRequest, res: Response, next: NextFunction
     const reviewExist = await Review.findOne({
       userID: id,
       productID,
-    })
+    });
     if (!reviewExist) {
-      next( new CustomError(400, "Review doesn't exist!"))
+      next(new CustomError(400, "Review doesn't exist!"));
     } else {
       await Review.deleteOne({
         userID: id,
