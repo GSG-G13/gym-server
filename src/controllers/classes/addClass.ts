@@ -18,7 +18,7 @@ const addClass = async (req: Request, res: Response, next: NextFunction): Promis
     });
     res.status(201).json('class added successfully!');
   } catch (error) {
-    next(new CustomError(400, error.message));
+    next(new CustomError(500, error.message));
   }
 };
 
