@@ -6,7 +6,7 @@ import CustomError from '../../helpers';
 const signIn = async (req:Request, res:Response, next: NextFunction): Promise<void> => {
   try {
     const { email, password } = req.body;
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email }, { password: 0 });
     if (!user) {
       next(new CustomError(400, 'Email or password wrong!'));
     } else {
