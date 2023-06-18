@@ -8,3 +8,4 @@ SubscriptionRouter.post('/:classId', checkAuth, addSubscription);
 SubscriptionRouter.get('/', getSubscriptions);
 
 export default SubscriptionRouter;
+console.log(subscription);
