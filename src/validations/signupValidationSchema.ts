@@ -3,8 +3,8 @@ import { object, string, number } from 'yup';
 export default object({
   body: object({
     username: string().required(),
-    email: string(),
-    password: string(),
+    email: string().required(),
+    password: string().required(),
     height: number(),
     weight: number(),
     gender: string(),

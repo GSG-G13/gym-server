@@ -47,6 +47,7 @@ const signup = async (req: Request, res: Response, next: NextFunction): Promise<
 
     const token = sign({
       username: userData.username,
+      email: userData.email,
       id: userData._id,
       role: userData.role,
     }, SECRET_KEY);

@@ -6,11 +6,14 @@ import signIn from '../../controllers/user/signin';
 import loginvalidation from '../../validations/loginvalidation';
 import getAllUsers from '../../controllers/user/getallusers';
 import checkRole from '../../middlewares/checkRole';
+import checkAuth from '../../middlewares/checkAuth';
+import updateUser from '../../controllers/user/updatauser';
 
 const userRouter: Router = express.Router();
 
 userRouter.post('/signup', validationData(signupValidationSchema), signup);
 userRouter.post('/login', validationData(loginvalidation), signIn);
 userRouter.get('/', checkRole, getAllUsers);
+userRouter.put('/', validationData(signupValidationSchema), checkAuth, updateUser);
 
 export default userRouter;
