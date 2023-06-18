@@ -10,6 +10,6 @@ classRouter.post('/', checkRole, validationData(classesValidationSchema), addCla
 classRouter.get('/', getClasses);
 classRouter.get('/:id', getClassBYId);
 
-classRouter.delete('/:id', deleteClass);
+classRouter.delete('/:id', checkRole, deleteClass);
 
 export default classRouter;
