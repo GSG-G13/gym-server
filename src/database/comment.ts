@@ -6,11 +6,11 @@ const commentsSchema = new mongoose.Schema<IComments>({
     type: String,
   },
   user: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'users',
   },
   announcement: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'announcements',
   },
 });

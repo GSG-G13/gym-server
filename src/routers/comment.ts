@@ -1,6 +1,4 @@
 import express, { type Router } from 'express';
-import validationData from '../middlewares/validation';
-import commentvalidation from '../validations/commentvalidation';
 import addComment from '../controllers/comment/addcomment';
 import checkAuth from '../middlewares/checkAuth';
 
@@ -8,6 +6,6 @@ import checkAuth from '../middlewares/checkAuth';
 
 const commentRouter: Router = express.Router();
 
-commentRouter.post('/', checkAuth, validationData(commentvalidation), addComment);
+commentRouter.post('/', checkAuth, addComment);
 
 export default commentRouter;

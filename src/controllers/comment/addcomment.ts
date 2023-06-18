@@ -15,7 +15,8 @@ const addComment = async (req: TokenRequest, res: Response, next: NextFunction):
     });
     res.status(201).json({ massage: 'Comment created successfully' });
   } catch (error) {
-    next(new CustomError(500, error.massage));
+    console.log(error.message);
+    next(new CustomError(500, error.message));
   }
 };
 
