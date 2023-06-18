@@ -12,7 +12,6 @@ const createSubscription = async (
   try {
     const { id } = req.user;
     const { classId } = req.params;
-    const { price, status } = req.body;
     const checkedData = await Subscription.findOne({ userId: id, classId });
     if (checkedData) {
       throw new CustomError(400, 'you  have already subscribed!');
@@ -21,8 +20,7 @@ const createSubscription = async (
     await Subscription.create({
       userId: id,
       classId,
-      price,
-      status,
+      status: 'pending',
     });
     res.status(201).json('subscription create successfully!');
   } catch (error) {

@@ -12,10 +12,6 @@ const subscriptionSchema = new mongoose.Schema <ISubscription>({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'classes',
   },
-
-  price: {
-    type: Number,
-  },
   status: {
     type: String,
   },
