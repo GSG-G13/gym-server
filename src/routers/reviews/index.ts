@@ -6,6 +6,6 @@ import deleteReview from '../../controllers/reviews/deletereview';
 const reviewRouter: Router = express.Router();
 
 reviewRouter.post('/', checkAuth, addReview);
-reviewRouter.delete('/', checkAuth, deleteReview);
+reviewRouter.delete('/:productID', checkAuth, deleteReview);
 
 export default reviewRouter;
