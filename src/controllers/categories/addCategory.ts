@@ -13,7 +13,7 @@ const addCategory = async (req: Request, res: Response, next: NextFunction): Pro
       categoryName,
       categoryImage,
     });
-    res.status(200).json({ msg: 'Created Category Successfully' });
+    res.status(200).json({ msg: 'You have been created category successfully' });
   } catch (error) {
     next(new CustomError(500, error.message));
   }
