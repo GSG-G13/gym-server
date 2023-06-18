@@ -1,4 +1,5 @@
 import addCategory from './addCategory';
 import deleteCategory from './deleteCategory';
-
-export { addCategory, deleteCategory };
+import updateCategory from './updateCategory';
+import getCategories from './getCategories';
+export { addCategory, deleteCategory,updateCategory, getCategories };
