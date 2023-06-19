@@ -33,7 +33,6 @@ const signIn = async (req:Request, res:Response, next: NextFunction): Promise<vo
       }
     }
   } catch (error) {
-    console.log(error.message);
     next(new CustomError(400, 'Email or password wrong!'));
   }
 };
