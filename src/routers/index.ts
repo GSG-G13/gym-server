@@ -5,6 +5,8 @@ import userRouter from './user';
 import reviewRouter from './reviews';
 import announcementRouter from './announcement';
 import orderRouter from './order';
+import SubscriptionRouter from './subscription';
+import categoryRouter from './category';
 
 const router: Router = express.Router();
 router.use('/users', userRouter);
@@ -13,5 +15,6 @@ router.use('/announcements', announcementRouter);
 router.use('/reviews', reviewRouter);
 router.use('/products', productRouter);
 router.use('/orders', orderRouter);
-
+router.use('/subscriptions', SubscriptionRouter);
+router.use('/categories', categoryRouter);
 export default router;
