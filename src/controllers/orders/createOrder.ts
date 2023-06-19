@@ -15,7 +15,7 @@ const createOrder = async (req:TokenRequest, res: Response, next: NextFunction):
     await Order.create({
       userId: id,
       productId,
-      status: 'pending',
+      status: 'requested',
       totalPrice,
       amount,
     });
