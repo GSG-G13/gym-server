@@ -6,7 +6,7 @@ import { addProduct, getProductById, getProducts, updateProduct, deleteProduct, 
 
 const productRouter = express.Router();
 
-productRouter.post('/', checkRole, validationData(productValidationSchema), addProduct);
+productRouter.post('/:categoryId', checkRole, validationData(productValidationSchema), addProduct);
 productRouter.get('/', getProducts);
 productRouter.get('/:id', getProductById);
 productRouter.get('/?category=category', getProductByCategory);

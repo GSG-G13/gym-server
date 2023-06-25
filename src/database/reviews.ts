@@ -1,10 +1,10 @@
 import mongoose from 'mongoose';
 
 const reviewsSchema = new mongoose.Schema({
-  productID: {
+  productId: {
     type: String,
   },
-  userID: {
+  userId: {
     type: String,
   },
   review: {

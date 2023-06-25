@@ -4,7 +4,7 @@ import CustomError from '../../helpers';
 
 const getClasses = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
-    const classesData = await Class.find();
+    const classesData = await Class.find().populate('trainerId');
     res.status(200).json({ classesData, msg: 'Get classes successfully!' });
   } catch (error) {
     next(new CustomError(500, error.message));

@@ -6,7 +6,7 @@ import { addClass, getClasses, getClassBYId, updateClass, deleteClass } from '..
 
 const classRouter: Router = express.Router();
 
-classRouter.post('/', checkRole, validationData(classesValidationSchema), addClass);
+classRouter.post('/:trainerId', checkRole, validationData(classesValidationSchema), addClass);
 classRouter.get('/', getClasses);
 classRouter.get('/:id', getClassBYId);
 classRouter.put('/:id', checkRole, updateClass);

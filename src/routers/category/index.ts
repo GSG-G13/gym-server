@@ -7,7 +7,7 @@ import { addCategory, deleteCategory, updateCategory, getCategories } from '../.
 
 const categoryRouter = express.Router();
 
-categoryRouter.post('/', checkRole, addCategory);
+categoryRouter.post('/:categoryId', checkRole, addCategory);
 categoryRouter.get('/', getCategories);
 categoryRouter.put('/:id', checkRole, updateCategory);
 categoryRouter.delete('/:id', checkRole, deleteCategory);

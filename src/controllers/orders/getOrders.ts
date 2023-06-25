@@ -4,7 +4,7 @@ import CustomError from '../../helpers';
 
 const getOrders = async (req:Request, res: Response, next: NextFunction): Promise<void> => {
   try {
-    const orders = await Order.find();
+    const orders = await Order.find().populate('productId').populate('userId');
     res.status(200).json({
       orders,
       msg: 'get orders successfully',

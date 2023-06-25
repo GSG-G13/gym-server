@@ -5,5 +5,5 @@ export default interface IProduct {
   image: string
   rating: number
   price: number,
-  category:Types.ObjectId
+  categoryId:Types.ObjectId
 };

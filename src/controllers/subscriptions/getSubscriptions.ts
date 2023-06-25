@@ -4,7 +4,7 @@ import CustomError from '../../helpers';
 
 const getSubscriptions = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
-    const subscriptionsData = await Subscription.find();
+    const subscriptionsData = await Subscription.find().populate('classId').populate('userId');
     res.status(200).json({ subscriptionsData, msg: 'Get subscriptions Successfully!' });
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
