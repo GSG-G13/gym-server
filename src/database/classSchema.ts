@@ -13,7 +13,7 @@ const classSchema = new mongoose.Schema <IClass>({
 
   trainerId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'user',
+    ref: 'users',
   },
   price: {
     type: Number,
