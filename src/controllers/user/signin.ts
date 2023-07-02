@@ -29,7 +29,7 @@ const signIn = async (req:Request, res:Response, next: NextFunction): Promise<vo
           },
           SECRET_KEY,
         );
-        res.cookie('token', token).status(200).json({ message: 'logged in successfully' });
+        res.cookie('token', token).status(200).json({ userData, message: 'logged in successfully' });
       }
     }
   } catch (error) {
