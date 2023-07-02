@@ -5,7 +5,7 @@ import getReviews from '../../controllers/reviews/getreviews';
 
 const reviewRouter: Router = express.Router();
 
-reviewRouter.post('/', checkAuth, addReview);
+reviewRouter.post('/:productId', checkAuth, addReview);
 reviewRouter.get('/:id', getReviews);
 
 export default reviewRouter;

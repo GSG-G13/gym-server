@@ -14,7 +14,7 @@ const productSchema = new mongoose.Schema <IProduct>({
   price: {
     type: Number,
   },
-  category: {
+  categoryId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'categories',
   },

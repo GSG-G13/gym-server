@@ -10,7 +10,7 @@ const updateSubscription = async (
   try {
     const { id } = req.params;
     const updateSubData = await Subscription.findByIdAndUpdate({ _id: id }, { status: 'joined' });
-    res.status(200).json({ updateSubData, msg: 'Deleted successfully!' });
+    res.status(200).json({ updateSubData, msg: 'Updated successfully!' });
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     next(new CustomError(500, error.message));

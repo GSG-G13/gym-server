@@ -4,7 +4,9 @@ import CustomError from '../../helpers';
 
 const addClass = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
-    const { className, description, trainerId, price, userCount } = req.body;
+    const { className, description, price, userCount } = req.body;
+    const { trainerId } = req.params;
+
     const checkName = await Class.findOne({ className });
     if (checkName) {
       throw new CustomError(400, 'className already existed!');

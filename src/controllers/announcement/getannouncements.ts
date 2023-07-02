@@ -4,7 +4,7 @@ import CustomError from '../../helpers';
 
 const getAnnouncements = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
-    const announcements = await Announcement.find();
+    const announcements = await Announcement.find().populate('roleId');
     res.status(200).json({
       announcements,
       msg: 'Get Announcements Successfully',

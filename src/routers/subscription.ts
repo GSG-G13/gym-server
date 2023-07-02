@@ -6,10 +6,10 @@ import checkRole from '../middlewares/checkRole';
 const SubscriptionRouter: Router = express.Router();
 
 SubscriptionRouter.post('/:classId', checkAuth, addSubscription);
-SubscriptionRouter.get('/', getSubscriptions);
+SubscriptionRouter.get('/', checkRole, getSubscriptions);
 SubscriptionRouter.delete('/:id', checkRole, deleteSubscription);
 SubscriptionRouter.put('/:id', checkRole, updateSubscription);
-SubscriptionRouter.get('/user', getUserSubscriptions);
+SubscriptionRouter.get('/user', checkAuth, getUserSubscriptions);
 SubscriptionRouter.get('/:classId', getClassSubscriptions);
 
 export default SubscriptionRouter;

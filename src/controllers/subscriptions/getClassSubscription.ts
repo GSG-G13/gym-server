@@ -9,7 +9,7 @@ const getClassSubscriptions = async (
 ): Promise<void> => {
   try {
     const { classId } = req.params;
-    const classSubscriptionData = await Subscription.find({ classId });
+    const classSubscriptionData = await Subscription.find({ classId }).populate('classId').populate('userId');
     res.status(200).json({ classSubscriptionData, msg: 'Get class subscriptions successfully!' });
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
