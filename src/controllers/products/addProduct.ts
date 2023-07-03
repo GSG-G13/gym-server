@@ -4,7 +4,7 @@ import CustomError from '../../helpers';
 
 const addProduct = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
-    const { title, image, rating, price } = req.body;
+    const { title, image, rating, price, description } = req.body;
     const { categoryId } = req.params;
 
     const isExistedProduct = await Product.findOne({ title });
@@ -17,6 +17,7 @@ const addProduct = async (req: Request, res: Response, next: NextFunction): Prom
       rating,
       price,
       categoryId,
+      description,
     });
     res.status(201).json({ msg: 'Created Product Successfully' });
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
