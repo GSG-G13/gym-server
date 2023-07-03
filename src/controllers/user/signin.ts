@@ -9,7 +9,6 @@ const signIn = async (req:Request, res:Response, next: NextFunction): Promise<vo
   try {
     const { email, password } = req.body;
 
-    // get user id and password only to compare it using bcrypt
     const user = await User.findOne({ email }, { password: 1 });
 
     if (!user) {
@@ -19,7 +18,6 @@ const signIn = async (req:Request, res:Response, next: NextFunction): Promise<vo
       if (!passwordsMatch) {
         next(new CustomError(400, 'Email or password wrong!'));
       } else {
-        // get all use rdata expet the password to add it to the token
         const userData = await User.findOne({ email }, { password: 0 });
         const token = sign(
           { username: userData.username,
