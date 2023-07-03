@@ -6,6 +6,7 @@ export default object({
     image: string(),
     rating: number(),
     price: number().required(),
+    description: string().required(),
     category: string().required(),
   }),
 });
