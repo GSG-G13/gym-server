@@ -6,6 +6,5 @@ export default object({
     image: string(),
     rating: number(),
     price: number().required(),
-    category: string().required(),
   }),
 });
