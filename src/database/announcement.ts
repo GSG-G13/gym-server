@@ -14,6 +14,10 @@ const announcementSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'users',
   },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 const Announcement = mongoose.model('announcements', announcementSchema);
