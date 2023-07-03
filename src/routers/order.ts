@@ -7,7 +7,7 @@ import getUserOrders from '../controllers/orders/getUserOrders';
 import deleteOrder from '../controllers/orders/deleteOrder';
 
 const orderRouter: Router = express.Router();
-orderRouter.post('/:productId?amount=amount', checkAuth, createOrder);
+orderRouter.post('/:productId', checkAuth, createOrder);
 orderRouter.get('/', checkRole, getOrders);
 orderRouter.get('/user', checkAuth, getUserOrders);
 orderRouter.delete('/:orderId', checkAuth, deleteOrder);

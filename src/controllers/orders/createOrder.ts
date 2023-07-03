@@ -8,7 +8,7 @@ const createOrder = async (req:TokenRequest, res: Response, next: NextFunction):
   try {
     const { id } = req.user;
     const { productId } = req.params;
-    const { amount } = req.query;
+    const { amount } = req.body;
 
     const product = await Product.findOne({ _id: productId });
     const totalPrice = +amount * product.price;
