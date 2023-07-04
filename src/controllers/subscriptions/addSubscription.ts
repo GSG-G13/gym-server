@@ -17,12 +17,12 @@ const createSubscription = async (
       throw new CustomError(400, 'you  have already subscribed!');
     }
 
-    await Subscription.create({
+    const subscriptionData = await Subscription.create({
       userId: id,
       classId,
       status: 'pending',
     });
-    res.status(201).json('subscription create successfully!');
+    res.status(201).json({ data: subscriptionData, msg: 'subscription create successfully!' });
   } catch (error) {
     next(new CustomError(500, error.message));
   }
