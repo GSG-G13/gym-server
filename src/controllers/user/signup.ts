@@ -8,7 +8,6 @@ import { SECRET_KEY } from '../../config';
 const signup = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
     const { username, email, password, weight, height, gender, goalweight } = req.body;
-    console.log(username, email, password, weight, height, gender, goalweight);
 
     const emailExist = await User.findOne({ email });
     if (emailExist) {
@@ -36,8 +35,6 @@ const signup = async (req: Request, res: Response, next: NextFunction): Promise<
     }
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
-    console.log(error);
-
     next(new CustomError(400, error.message));
   }
 };
