@@ -5,6 +5,9 @@ import CustomError from '../../helpers';
 const getOrders = async (req:Request, res: Response, next: NextFunction): Promise<void> => {
   try {
     const orders = await Order.find().populate('productId').populate('userId');
+    if (orders) {
+      throw new CustomError(400, 'there is no data');
+    }
     res.status(200).json({
       orders,
       msg: 'get orders successfully',
