@@ -4,8 +4,7 @@ import CustomError from '../../helpers';
 
 const addProduct = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
-    const [title, image, rating, price, description] = req.body.states;
-    console.log(title, image, rating, price, description);
+    const { title, image, rating, price, description } = req.body;
 
     const { categoryId } = req.params;
 

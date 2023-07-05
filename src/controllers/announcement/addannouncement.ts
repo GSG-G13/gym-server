@@ -10,8 +10,9 @@ const addAnnouncement = async (
   next: NextFunction,
 ): Promise<void> => {
   try {
-    const [title, description, image] = req.body.states;
+    const { title, description, image } = req.body;
     const { id } = req.admin as userData;
+    console.log(req.body);
 
     await Announcement.create({
       title,
@@ -25,6 +26,8 @@ const addAnnouncement = async (
     });
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
+    console.log(error);
+
     next(new CustomError(400, error.message));
   }
 };

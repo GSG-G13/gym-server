@@ -7,7 +7,7 @@ import { SECRET_KEY } from '../../config';
 
 const signup = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
-    const { username, email, password, weight, height, gender, goalweight, role } = req.body;
+    const { username, email, password, age, gender, height, weight, goalweight, role = 'user' } = req.body;
 
     const emailExist = await User.findOne({ email });
     if (emailExist) {
@@ -19,6 +19,7 @@ const signup = async (req: Request, res: Response, next: NextFunction): Promise<
         username,
         email,
         password: hashedPassword,
+        age,
         weight,
         height,
         gender,
@@ -33,26 +34,7 @@ const signup = async (req: Request, res: Response, next: NextFunction): Promise<
       }, SECRET_KEY);
       res.cookie('token', token).status(201).json({ massage: 'user created successfully' });
     }
-    const hashedPassword = await hash(password, 10);
-    const userData = await User.create({
-      username,
-      email,
-      password: hashedPassword,
-      weight,
-      height,
-      gender,
-      goalweight,
-      role,
-    });
-
-    const token = sign({
-      username: userData.username,
-      email: userData.email,
-      id: userData._id,
-      role: userData.role,
-    }, SECRET_KEY);
-    res.cookie('token', token).status(201).json({ massage: 'user created successfully' });
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     next(new CustomError(400, error.message));
   }

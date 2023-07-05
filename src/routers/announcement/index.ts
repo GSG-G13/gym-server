@@ -9,7 +9,7 @@ import updateAnnouncement from '../../controllers/announcement/updateacnnounceme
 
 const announcementRouter: Router = express.Router();
 
-announcementRouter.post('/', checkRole, validationData(announcementValidation), addAnnouncement);
+announcementRouter.post('/', checkRole, addAnnouncement);
 announcementRouter.get('/', getAnnouncements);
 announcementRouter.delete('/:id', deleteAnnouncement);
 announcementRouter.put('/:id', updateAnnouncement);
