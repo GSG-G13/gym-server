@@ -12,7 +12,7 @@ import getTrainers from '../../controllers/user/getTrainers';
 
 const userRouter: Router = express.Router();
 
-userRouter.post('/signup', validationData(signupValidationSchema), signup);
+userRouter.post('/signup', validationData(loginvalidation), signup);
 userRouter.post('/login', validationData(loginvalidation), signIn);
 userRouter.get('/', checkRole, getAllUsers);
 userRouter.put('/', validationData(signupValidationSchema), checkAuth, updateUser);

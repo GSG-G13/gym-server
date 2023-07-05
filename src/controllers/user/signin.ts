@@ -10,7 +10,7 @@ const signIn = async (req:Request, res:Response, next: NextFunction): Promise<vo
     const { email, password } = req.body;
 
     // get user id and password only to compare it using bcrypt
-    const user = await User.findOne({ email }, { password: 1 });
+    const user = await User.findOne({ email });
 
     if (!user) {
       next(new CustomError(400, 'Email or password wrong!'));
@@ -29,7 +29,7 @@ const signIn = async (req:Request, res:Response, next: NextFunction): Promise<vo
           },
           SECRET_KEY,
         );
-        res.cookie('token', token).status(200).json({ userData, message: 'logged in successfully' });
+        res.cookie('token', token).status(200).json({ user, message: 'logged in successfully' });
       }
     }
   } catch (error) {
