@@ -10,7 +10,7 @@ const addAnnouncement = async (
   next: NextFunction,
 ): Promise<void> => {
   try {
-    const { title, description, image } = req.body;
+    const [title, description, image] = req.body.states;
     const { id } = req.admin as userData;
 
     await Announcement.create({
