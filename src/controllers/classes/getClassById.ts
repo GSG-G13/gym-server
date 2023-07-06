@@ -5,7 +5,12 @@ import CustomError from '../../helpers';
 const getClassBYId = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
     const { id } = req.params;
+
     const classObj = await Class.findById(id).populate('trainerId');
+
+    if (!classObj) {
+      throw new CustomError(400, 'There is No Data');
+    }
     res.status(200).json({ classObj, msg: ' Get class successfully!' });
   } catch (error) {
     next(new CustomError(500, error.message));
