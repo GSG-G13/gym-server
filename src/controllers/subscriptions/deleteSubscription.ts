@@ -13,6 +13,8 @@ const deleteSubscription = async (
     res.status(200).json({ deleteSubData, msg: 'Deleted successfully!' });
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
+    console.log(error);
+
     next(new CustomError(500, error.message));
   }
 };
