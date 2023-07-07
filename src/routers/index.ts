@@ -7,6 +7,7 @@ import announcementRouter from './announcement';
 import orderRouter from './order';
 import SubscriptionRouter from './subscription';
 import categoryRouter from './category';
+import chatRouter from './chat';
 
 const router: Router = express.Router();
 router.use('/users', userRouter);
@@ -17,4 +18,6 @@ router.use('/products', productRouter);
 router.use('/orders', orderRouter);
 router.use('/subscriptions', SubscriptionRouter);
 router.use('/categories', categoryRouter);
+router.use('/chat', chatRouter);
+
 export default router;
