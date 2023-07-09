@@ -7,7 +7,7 @@ const getProducts = async (req: Request, res: Response, next: NextFunction): Pro
     const products = await Product.find().populate('categoryId');
     res.status(200).json({ products, msg: 'Get Products Successfully' });
   } catch (error) {
-    next(new CustomError(400, error.message));
+    next(new CustomError(500, error.message));
   }
 };
 

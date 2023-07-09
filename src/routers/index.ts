@@ -8,6 +8,7 @@ import orderRouter from './order';
 import SubscriptionRouter from './subscription';
 import categoryRouter from './category';
 import chatRouter from './chat';
+import commentRouter from './comment';
 
 const router: Router = express.Router();
 router.use('/users', userRouter);
@@ -19,5 +20,6 @@ router.use('/orders', orderRouter);
 router.use('/subscriptions', SubscriptionRouter);
 router.use('/categories', categoryRouter);
 router.use('/chat', chatRouter);
+router.use('/comments', commentRouter);
 
 export default router;

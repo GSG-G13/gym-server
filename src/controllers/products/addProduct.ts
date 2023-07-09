@@ -23,9 +23,7 @@ const addProduct = async (req: Request, res: Response, next: NextFunction): Prom
     res.status(201).json({ msg: 'Created Product Successfully' });
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
-    console.log(error);
-
-    next(new CustomError(400, error.message));
+    next(new CustomError(500, error.message));
   }
 };
 

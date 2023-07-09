@@ -5,7 +5,6 @@ import CustomError from '../../helpers';
 const getSubscriptions = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
     const subscriptionsData = await Subscription.find().populate('classId').populate('userId');
-    console.log(subscriptionsData);
 
     if (subscriptionsData.length === 0) {
       throw new CustomError(400, 'there is no data');
