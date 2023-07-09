@@ -2,15 +2,16 @@
 import type { NextFunction, Response } from 'express';
 import CustomError from '../../helpers';
 import User from '../../database/user';
-import { TokenRequest } from '../../middlewares/checkAuth';
+import { UserRequestI } from '../../interfaces/requestI';
 
 const deleteUserInfo = async (
-  req: TokenRequest,
+  req: UserRequestI,
   res: Response,
   next: NextFunction,
 ): Promise<void> => {
   try {
     const { id } = req.user;
+
     const deletedUserInfo = await User.findByIdAndDelete({ _id: id });
     res.clearCookie('token').status(202).json({ deletedUserInfo,
       message: 'cookie Deleted successfully' });

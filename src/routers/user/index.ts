@@ -21,6 +21,6 @@ userRouter.put('/', validationData(signupValidationSchema), checkAuth, updateUse
 userRouter.get('/trainers', getTrainers);
 userRouter.get('/signout', signOut);
 userRouter.delete('/:id', checkRole, deleteUser);
-userRouter.delete('/user', checkAuth, deleteUserInfo);
+userRouter.delete('/', checkAuth, deleteUserInfo);
 
 export default userRouter;
