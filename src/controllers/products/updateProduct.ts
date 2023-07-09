@@ -9,7 +9,7 @@ const updateProduct = async (req: Request, res: Response, next: NextFunction): P
     const updatedProduct = await Product.findByIdAndUpdate(id, { title, price, image, rating });
     res.status(200).json({ updatedProduct, msg: 'Update Product Successfully' });
   } catch (error) {
-    next(new CustomError(400, error.message));
+    next(new CustomError(500, error.message));
   }
 };
 
