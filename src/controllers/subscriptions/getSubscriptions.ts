@@ -12,8 +12,6 @@ const getSubscriptions = async (req: Request, res: Response, next: NextFunction)
     res.status(200).json({ subscriptionsData, msg: 'Get subscriptions Successfully!' });
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
-    console.log(error);
-
     next(new CustomError(500, error.message));
   }
 };
