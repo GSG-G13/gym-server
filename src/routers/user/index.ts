@@ -17,7 +17,7 @@ const userRouter: Router = express.Router();
 userRouter.post('/signup', validationData(loginvalidation), signup);
 userRouter.post('/login', validationData(loginvalidation), signIn);
 userRouter.get('/', checkRole, getAllUsers);
-userRouter.put('/', validationData(signupValidationSchema), checkAuth, updateUser);
+userRouter.put('/:id', updateUser);
 userRouter.get('/trainers', getTrainers);
 userRouter.get('/signout', signOut);
 userRouter.delete('/:id', checkRole, deleteUser);
