@@ -10,7 +10,7 @@ import checkAuth from '../../middlewares/checkAuth';
 import updateUser from '../../controllers/user/updatauser';
 import getTrainers from '../../controllers/user/getTrainers';
 import signOut from '../../controllers/user/signOut';
-import { deleteUser } from '../../controllers';
+import { deleteUser, deleteUserInfo } from '../../controllers';
 
 const userRouter: Router = express.Router();
 
@@ -21,5 +21,6 @@ userRouter.put('/', validationData(signupValidationSchema), checkAuth, updateUse
 userRouter.get('/trainers', getTrainers);
 userRouter.get('/signout', signOut);
 userRouter.delete('/:id', checkRole, deleteUser);
+userRouter.delete('/user', checkAuth, deleteUserInfo);
 
 export default userRouter;
