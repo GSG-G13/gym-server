@@ -6,7 +6,9 @@ import CustomError from '../../helpers';
 const updateUser = async (req: TokenRequest, res: Response, next: NextFunction): Promise<void> => {
   try {
     const { username, email, weight, height, gender, goalweight } = req.body;
-    const { id } = req.user;
+    console.log(username, email, weight, height, gender, goalweight);
+
+    const { id } = req.params;
     await User.updateOne({ _id: id }, {
       username,
       email,
