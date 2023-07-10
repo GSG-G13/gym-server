@@ -10,13 +10,14 @@ import checkAuth from '../../middlewares/checkAuth';
 import updateUser from '../../controllers/user/updatauser';
 import getTrainers from '../../controllers/user/getTrainers';
 import signOut from '../../controllers/user/signOut';
-import { deleteUser, deleteUserInfo } from '../../controllers';
+import { deleteUser, deleteUserInfo, getUserById } from '../../controllers';
 
 const userRouter: Router = express.Router();
 
-userRouter.post('/signup', validationData(loginvalidation), signup);
+userRouter.post('/signup', validationData(signupValidationSchema), signup);
 userRouter.post('/login', validationData(loginvalidation), signIn);
 userRouter.get('/', checkRole, getAllUsers);
+userRouter.get('/:id', getUserById);
 userRouter.put('/:id', updateUser);
 userRouter.get('/trainers', getTrainers);
 userRouter.get('/signout', signOut);

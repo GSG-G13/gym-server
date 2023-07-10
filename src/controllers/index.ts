@@ -3,6 +3,7 @@ import { addCategory, deleteCategory, updateCategory, getCategories } from './ca
 import { createComment, getComments, deleteComment } from './comments';
 import deleteUser from './user/deleteUser';
 import deleteUserInfo from './user/deleteUserInfo';
+import getUserById from './user/getUserById';
 
 export {
   addAnnouncement,
@@ -15,4 +16,5 @@ export {
   getComments,
   createComment,
   deleteComment,
+  getUserById,
 };
