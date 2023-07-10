@@ -8,6 +8,8 @@ const getUserById = async (req:Request, res:Response, next:NextFunction) => {
     const user = await User.findById(id);
     res.status(200).json({ user, msg: 'Get user Successfully' });
   } catch (error) {
+    console.log(error);
+    
     next(new CustomError(500, error.message));
   }
 };

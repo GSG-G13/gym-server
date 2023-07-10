@@ -20,7 +20,7 @@ userRouter.get('/', checkRole, getAllUsers);
 userRouter.get('/:id', getUserById);
 userRouter.put('/:id', updateUser);
 userRouter.get('/trainers', getTrainers);
-userRouter.get('/signout', signOut);
+userRouter.delete('/signout', signOut);
 userRouter.delete('/:id', checkRole, deleteUser);
 userRouter.delete('/', checkAuth, deleteUserInfo);
 
