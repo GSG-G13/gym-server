@@ -4,6 +4,7 @@ import { createComment, getComments, deleteComment } from './comments';
 import ChangePassword from './user/changePassword';
 import deleteUser from './user/deleteUser';
 import deleteUserInfo from './user/deleteUserInfo';
+import getUserById from './user/getUserById';
 
 export {
   addAnnouncement,
@@ -16,5 +17,6 @@ export {
   getComments,
   createComment,
   deleteComment,
+  getUserById,
   ChangePassword,
 };
