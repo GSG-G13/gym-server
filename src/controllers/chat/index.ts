@@ -11,12 +11,12 @@ const getChat = async (req: Request, res: Response) => {
 
   const messages = chatHistory.reduce((acc, message) => ({
     ...acc,
-    [message._id.toString()]: {
-      _id: message._id,
+    [message?._id.toString()]: {
+      _id: message?._id,
       message: message.message,
-      user: message.user._id,
-      username: (message.user as unknown as userData).username,
-      createdAt: message.createdAt,
+      user: message.user?._id,
+      username: (message.user as unknown as userData)?.username,
+      createdAt: message?.createdAt,
     },
   }), {});
 
