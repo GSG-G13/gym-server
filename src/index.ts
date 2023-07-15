@@ -30,6 +30,7 @@ app.use('/api', router);
 
 const room = {
   messages: {},
+  users: {},
 };
 
 const saveMessage = async ({ userData, message }) => {
@@ -39,16 +40,25 @@ const saveMessage = async ({ userData, message }) => {
   });
 };
 
+// eslint-disable-next-line no-unused-vars
+
 io.on('connection', async (socket) => {
   // listen to join event: when user join notify all clients that a user has joined
   socket.on('join', (userData) => {
+    room.users[userData._id] = userData;
+
     socket.broadcast.emit('user-join', {
       type: 'user-join',
       payload: {
-        username: userData.username,
-        _id: userData._id,
-        email: userData.email,
+        username: userData?.username,
+        _id: userData?._id,
+        email: userData?.email,
       },
+    });
+
+    socket.emit('users-list', {
+      type: 'users-list',
+      payload: room.users,
     });
   });
 
@@ -80,6 +90,17 @@ io.on('connection', async (socket) => {
   socket.on('disconnect', () => {
     console.log('user disconnected');
   });
+
+  socket.on('user-disconnect', (data) => {
+    delete room.users[data?.userData?._id];
+  });
+
+  setInterval(() => {
+    socket.emit('users-list', {
+      type: 'users-list',
+      payload: room.users,
+    });
+  }, 5000);
 });
 
 server.listen(PORT, async () => {
