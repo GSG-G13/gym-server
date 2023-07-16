@@ -25,7 +25,7 @@ const signup = async (req: Request, res: Response, next: NextFunction): Promise<
         role,
       });
 
-      res.status(201).json({ massage: 'user created successfully' });
+      res.status(201).json({ massage: 'user has created successfully' });
     }
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
