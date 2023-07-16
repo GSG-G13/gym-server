@@ -18,6 +18,7 @@ const checkRole = async (req: roleRequest, res: Response, next: NextFunction) =>
     const userData = await verifyToken(token);
     req.admin = userData as userInfo;
     const { role } = req.admin;
+
     if (role !== 'admin') {
       throw new CustomError(401, 'Not Authorized');
     }

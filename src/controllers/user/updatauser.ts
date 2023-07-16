@@ -5,10 +5,10 @@ import CustomError from '../../helpers';
 
 const updateUser = async (req: TokenRequest, res: Response, next: NextFunction): Promise<void> => {
   try {
-    const { username, email, weight, height, gender, goalweight } = req.body;
-    console.log(username, email, weight, height, gender, goalweight);
+    const { username, email, weight, height, gender, goalweight, role } = req.body;
 
     const { id } = req.params;
+
     await User.updateOne({ _id: id }, {
       username,
       email,
@@ -16,6 +16,7 @@ const updateUser = async (req: TokenRequest, res: Response, next: NextFunction):
       height,
       gender,
       goalweight,
+      role,
     });
     res.status(200).json({ message: 'User information has been updated' });
   } catch (error) {
