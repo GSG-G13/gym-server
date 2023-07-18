@@ -7,7 +7,7 @@ const SubscriptionRouter: Router = express.Router();
 
 SubscriptionRouter.post('/:classId', checkAuth, addSubscription);
 SubscriptionRouter.get('/', checkRole, getSubscriptions);
-SubscriptionRouter.delete('/:id', checkRole, deleteSubscription);
+SubscriptionRouter.delete('/:id', deleteSubscription);
 SubscriptionRouter.put('/:id', checkRole, updateSubscription);
 SubscriptionRouter.get('/user', checkAuth, getUserSubscriptions);
 SubscriptionRouter.get('/:classId', getClassSubscriptions);
