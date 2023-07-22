@@ -5,13 +5,14 @@ import CustomError from '../../helpers';
 
 const updateUser = async (req: TokenRequest, res: Response, next: NextFunction): Promise<void> => {
   try {
-    const { username, email, weight, height, gender, goalweight, role } = req.body;
+    const { username, email, age, weight, height, gender, goalweight, role } = req.body;
 
     const { id } = req.params;
 
     await User.updateOne({ _id: id }, {
       username,
       email,
+      age,
       weight,
       height,
       gender,
