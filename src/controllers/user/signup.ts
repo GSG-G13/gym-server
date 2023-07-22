@@ -6,6 +6,7 @@ import CustomError from '../../helpers';
 const signup = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
     const { username, email, password, age, gender, height, weight, goalweight, role = 'user' } = req.body;
+    console.log('🚀 ~ file: signup.ts:9 ~ signup ~ role:', role);
 
     const emailExist = await User.findOne({ email });
     if (emailExist) {
