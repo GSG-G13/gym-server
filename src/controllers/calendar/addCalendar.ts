@@ -13,7 +13,6 @@ const addCalendar = async (req: Request, res: Response, next: NextFunction): Pro
     });
     res.status(201).json('calendar added successfully!');
   } catch (error) {
-    console.log(error)
     next(new CustomError(500, error.message));
   }
 };

@@ -8,6 +8,7 @@ import getUserById from './user/getUserById';
 import addCalendar from './calendar/addCalendar';
 import getCalendars from './calendar/getCalendar';
 import getCalendarByClassId from './calendar/getCalendarByClassId';
+import deleteCalendar from './calendar/deleteCalendar';
 
 export {
   addAnnouncement,
@@ -25,4 +26,6 @@ export {
   addCalendar,
   getCalendars,
   getCalendarByClassId,
+  deleteCalendar,
+
 };
