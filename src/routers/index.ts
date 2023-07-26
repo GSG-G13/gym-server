@@ -9,6 +9,7 @@ import SubscriptionRouter from './subscription';
 import categoryRouter from './category';
 import chatRouter from './chat';
 import commentRouter from './comment';
+import calendarRouter from './calendar';
 
 const router: Router = express.Router();
 router.use('/users', userRouter);
@@ -21,5 +22,6 @@ router.use('/subscriptions', SubscriptionRouter);
 router.use('/categories', categoryRouter);
 router.use('/chat', chatRouter);
 router.use('/comments', commentRouter);
+router.use('/calendar', calendarRouter);
 
 export default router;
