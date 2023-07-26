@@ -5,6 +5,9 @@ import ChangePassword from './user/changePassword';
 import deleteUser from './user/deleteUser';
 import deleteUserInfo from './user/deleteUserInfo';
 import getUserById from './user/getUserById';
+import addCalendar from './calendar/addCalendar';
+import getCalendars from './calendar/getCalendar';
+import getCalendarByClassId from './calendar/getCalendarByClassId';
 
 export {
   addAnnouncement,
@@ -19,4 +22,7 @@ export {
   deleteComment,
   getUserById,
   ChangePassword,
+  addCalendar,
+  getCalendars,
+  getCalendarByClassId,
 };
